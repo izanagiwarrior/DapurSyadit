@@ -58,10 +58,6 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a class="" href="{{ route('transaction') }}">History</a>
-                        </li>
-                        <li class="nav-item dropdown">
-
                             <p class="text-center">
                                 Hai, <b> {{ Auth::user()->name }} </b> !
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

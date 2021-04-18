@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Dapur Syadit</title>
 
     <!-- Icon -->
     <link rel="icon" href="images/logo_title.png" type="image/x-icon">

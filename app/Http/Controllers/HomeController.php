@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $products = Products::all();
+
+        return view('home', compact('products'));
     }
 
     /**
@@ -33,7 +35,9 @@ class HomeController extends Controller
      */
     public function adminHome()
     {
-        return view('adminHome');
+        $products = Products::all();
+
+        return view('adminHome', compact('products'));
     }
     
 }
