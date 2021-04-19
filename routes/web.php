@@ -12,9 +12,6 @@ Auth::routes();
 
 // USER
 Route::get('/home', [App\Http\Controllers\OrdersController::class, 'index'])->name('home');
-Route::get('/order/{id}', [App\Http\Controllers\OrdersController::class, 'create'])->name('create');
-Route::post('/order', [App\Http\Controllers\OrdersController::class, 'createProcess'])->name('createProcess');
-Route::get('/transaction', [App\Http\Controllers\OrdersController::class, 'show'])->name('transaction');
 
 // ADMIN
 Route::get('admin/home', [App\Http\Controllers\ProductsController::class, 'index'])->name('admin.home')->middleware('is_admin');
