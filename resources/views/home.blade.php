@@ -16,7 +16,7 @@
 
                     @if (count($products) === 0)
                     <div class="d-flex justify-content-center">
-                        <p class="text-muted">Mohon maaf semua stock sedang habis.</p>
+                        <p class="text-muted">We're out of stocks. Check back later!</p>
                     </div>
                     @elseif (count($products) > 0)
 
