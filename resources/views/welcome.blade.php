@@ -16,8 +16,7 @@
     <!-- Styles -->
     <link rel='stylesheet' href='css/me.css' type='text/css' media='screen' />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
 </head>
 
@@ -26,8 +25,7 @@
     @if (Route::has('login'))
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -70,7 +68,7 @@
 
             <div class="bio">
 
-                <p>Welcome to Dapur Syadit!</p>
+                <p>This is me. I push pixels at <a href="#">Google</a>, write words on <a href="#">Medium</a> and spill thoughts on <a href="#">Twitter</a>.</p>
 
             </div>
         </div>

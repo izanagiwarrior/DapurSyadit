@@ -2,6 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
 // Landing Page
 Route::get('/', function () {
     return view('welcome');
@@ -12,6 +23,9 @@ Auth::routes();
 
 // USER
 Route::get('/home', [App\Http\Controllers\OrdersController::class, 'index'])->name('home');
+Route::get('/order/{id}', [App\Http\Controllers\OrdersController::class, 'create'])->name('create');
+Route::post('/order', [App\Http\Controllers\OrdersController::class, 'createProcess'])->name('createProcess');
+Route::get('/transaction', [App\Http\Controllers\OrdersController::class, 'show'])->name('transaction');
 
 // ADMIN
 Route::get('admin/home', [App\Http\Controllers\ProductsController::class, 'index'])->name('admin.home')->middleware('is_admin');
