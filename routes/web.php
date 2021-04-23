@@ -34,3 +34,5 @@ Route::post('admin/create', [App\Http\Controllers\ProductsController::class, 'cr
 Route::get('admin/update/{id}', [App\Http\Controllers\ProductsController::class, 'edit'])->name('admin.edit')->middleware('is_admin');
 Route::post('admin/update/{id}', [App\Http\Controllers\ProductsController::class, 'update'])->name('admin.editProcess')->middleware('is_admin');
 Route::post('admin/delete', [App\Http\Controllers\ProductsController::class, 'destroy'])->name('admin.delete')->middleware('is_admin');
+Route::get('admin/user', [App\Http\Controllers\ProductsController::class, 'user'])->name('admin.user')->middleware('is_admin');
+Route::post('admin/userDelete', [App\Http\Controllers\ProductsController::class, 'destroyUser'])->name('admin.userDelete')->middleware('is_admin');

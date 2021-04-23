@@ -15,7 +15,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -38,18 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @guest
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.home') }}"><h3 class="fs-1 ">Admin Home</h3></a>
-                        </li>
-                        <li class="nav-item">
-                            <h3 class="nav-link ">|</h3>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.user') }}"><h3 class="fs-1 ">List User</h3></a>
-                        </li>
-                        @endguest
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -81,9 +70,9 @@
                                 @csrf
                             </form>
                         </li>
+                        @endguest
                     </ul>
                 </div>
-                @endguest
             </div>
         </nav>
 
