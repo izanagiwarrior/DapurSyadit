@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">
+                    <h1 class="text-center mt-4">Order</h1>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,7 +22,6 @@
                     </div>
                     @elseif (count($products) > 0)
 
-                    <h1 class="text-center">Order</h1>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-md-8">
@@ -28,8 +29,8 @@
                                     <div class="card-body">
                                         <div class="row">
                                             @foreach ($products as $index => $product)
-                                            <div class="col-sm-6">
-                                                <div class="card border-0" style="width: 18rem;">
+                                            <div class="col-sm-6 mr-2 mb-4 text-center">
+                                                <div class="card border-2" style="width: 18rem;">
                                                     <img src="{{ asset('public/'.$product->img_path) }}" height="225">
                                                     <div class="card-body">
                                                         <h6 class="card-title">{{ $product->name }}</h6>

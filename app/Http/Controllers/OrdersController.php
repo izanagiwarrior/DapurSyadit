@@ -110,11 +110,27 @@ class OrdersController extends Controller
         return view('adminOrder', compact('order'));
     }
 
+    
     public function orderDelete(Request $request)
     {
         $order = Orders::find($request->id);
         $order->delete();
-
+        
         return redirect(route('admin.userOrder'));
+    }
+    
+    public function orderList()
+    {
+        $order = Orders::all();
+
+        return view('orderList', compact('order'));
+    }
+
+    public function UorderDelete(Request $request)
+    {
+        $order = Orders::find($request->id);
+        $order->delete();
+
+        return redirect(route('orderList'));
     }
 }

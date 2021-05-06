@@ -34,6 +34,7 @@
                     @auth
                     @else
                     <a class="nav-item nav-link pr-4 text-primary" href="{{ route('login') }}">Sign in</a>
+                    <p class="nav-item nav-link pr-4 text-primary">|</p>
                     @if (Route::has('register'))
                     <a class="nav-item nav-link ml-5 text-primary" href="{{ route('register') }}">Register</a>
                     @endif

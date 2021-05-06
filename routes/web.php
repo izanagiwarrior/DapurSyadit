@@ -26,6 +26,8 @@ Route::get('/home', [App\Http\Controllers\OrdersController::class, 'index'])->na
 Route::get('/order/{id}', [App\Http\Controllers\OrdersController::class, 'create'])->name('create');
 Route::post('/order', [App\Http\Controllers\OrdersController::class, 'createProcess'])->name('createProcess');
 Route::get('/transaction', [App\Http\Controllers\OrdersController::class, 'show'])->name('transaction');
+Route::get('/orderList', [App\Http\Controllers\OrdersController::class, 'orderList'])->name('orderList');
+Route::post('/orderList', [App\Http\Controllers\OrdersController::class, 'UorderDelete'])->name('UorderDelete');
 
 // ADMIN
 Route::get('admin/home', [App\Http\Controllers\ProductsController::class, 'index'])->name('admin.home')->middleware('is_admin');

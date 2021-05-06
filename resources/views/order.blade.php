@@ -10,7 +10,7 @@
             <h1>{{ $products->name }}</h1>
             <p>{{ $products->description }}</p>
             <h6>Stock : {{ $products->stock }}</h6>
-            <h1>$ {{ $products->price }}</h1>
+            <h1>Rp. {{ $products->price }},-</h1>
         </div>
     </div>
 </div>
