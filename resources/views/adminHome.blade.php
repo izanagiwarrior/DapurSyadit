@@ -34,7 +34,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>
-                <a href="{{ route('admin.edit',$product->id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('admin.orderProcess',$product->id) }}" class="btn btn-primary">Edit</a>
 
                 &nbsp;&nbsp;
 

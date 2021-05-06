@@ -15,11 +15,12 @@ use App\Models\Products;
             <th>Product</th>
             <th>Amount</th>
             <th>Contact</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
 
         @foreach ($order as $index => $product)
-        @if($product->buyer_name === Auth::user()->name):
+        @if($product->buyer_name === Auth::user()->name)
         <tr>
             <td>{{ $i += 1 }}</td>
             <td>{{ $product->buyer_name }}</td>
@@ -31,11 +32,12 @@ use App\Models\Products;
             </td>
             <td>{{ $product->amount }}</td>
             <td>{{ $product->buyer_contact }}</td>
+            <td>{{ $product->status }}</td>
             <td>
                 <form action="{{ route('UorderDelete') }}" method="post">
                     @csrf
                     <input type="hidden" value="{{ $product->id }}" name="id">
-                    <button class="btn btn-danger">Hapus</button>
+                    <button class="btn btn-danger">Cancel Order</button>
                 </form>
             </td>
         </tr>

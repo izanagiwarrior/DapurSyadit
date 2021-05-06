@@ -15,28 +15,38 @@ use App\Models\Products;
             <th>Product</th>
             <th>Amount</th>
             <th>Contact</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
 
         @foreach ($order as $index => $product)
-
         <tr>
             <td>{{ $i += 1 }}</td>
             <td>{{ $product->buyer_name }}</td>
             <td>
-            @php
-            $order = Products::find($product->product_id);
-            echo $order['name'];
-            @endphp
+                @php
+                $order = Products::find($product->product_id);
+                echo $order['name'];
+                @endphp
             </td>
             <td>{{ $product->amount }}</td>
             <td>{{ $product->buyer_contact }}</td>
+            <td>{{ $product->status }}</td>
             <td>
+                @if($product->status === "Pesanan Selesai")
+                <p class="text-danger"><b>Selesai</b></p>
+                @else
+                <form action="{{ route('admin.orderProcess') }}" method="post">
+                    @csrf
+                    <input type="hidden" value="{{ $product->id }}" name="id">
+                    <button class="btn btn-success">Process</button>
+                </form>
                 <form action="{{ route('admin.orderDelete') }}" method="post">
                     @csrf
                     <input type="hidden" value="{{ $product->id }}" name="id">
                     <button class="btn btn-danger">Hapus</button>
                 </form>
+                @endif
             </td>
         </tr>
         @endforeach

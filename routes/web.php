@@ -39,4 +39,5 @@ Route::post('admin/delete', [App\Http\Controllers\ProductsController::class, 'de
 Route::get('admin/user', [App\Http\Controllers\ProductsController::class, 'user'])->name('admin.user')->middleware('is_admin');
 Route::post('admin/userDelete', [App\Http\Controllers\ProductsController::class, 'destroyUser'])->name('admin.userDelete')->middleware('is_admin');
 Route::get('admin/userOrder', [App\Http\Controllers\OrdersController::class, 'userOrder'])->name('admin.userOrder')->middleware('is_admin');
+Route::post('admin/userOrder', [App\Http\Controllers\OrdersController::class, 'orderProcess'])->name('admin.orderProcess')->middleware('is_admin');
 Route::post('admin/orderDelete', [App\Http\Controllers\OrdersController::class, 'orderDelete'])->name('admin.orderDelete')->middleware('is_admin');

@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->integer('amount');
             $table->string('buyer_name');
             $table->string('buyer_contact');
+            $table->string('status')->nullable();
         });
     }
 

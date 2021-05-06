@@ -39,6 +39,7 @@ class OrdersController extends Controller
         $orders->amount = $request->amount;
         $orders->buyer_name = $request->buyer_name;
         $orders->buyer_contact = $request->buyer_contact;
+        $orders->status = "Sedang Diproses";
         $orders->save();
 
         return redirect(route('home'));
@@ -110,15 +111,15 @@ class OrdersController extends Controller
         return view('adminOrder', compact('order'));
     }
 
-    
+
     public function orderDelete(Request $request)
     {
         $order = Orders::find($request->id);
         $order->delete();
-        
+
         return redirect(route('admin.userOrder'));
     }
-    
+
     public function orderList()
     {
         $order = Orders::all();
@@ -132,5 +133,22 @@ class OrdersController extends Controller
         $order->delete();
 
         return redirect(route('orderList'));
+    }
+
+    public function orderProcess(Request $request)
+    {
+        $order = Orders::find($request->id);
+        if ($order['status'] == "Sedang Diproses") {
+            $order->status = "Sedang Dikirim";
+            $order->save();
+        } elseif ($order['status'] == "Sedang Dikirim") {
+            $order->status = "Sudah Diterima";
+            $order->save();
+        } elseif ($order['status'] == "Sudah Diterima") {
+            $order->status = "Pesanan Selesai";
+            $order->save();
+        }
+
+        return redirect(route('admin.userOrder'));
     }
 }

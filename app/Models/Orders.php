@@ -10,7 +10,7 @@ class Orders extends Model
     use HasFactory;
 
     protected $fillable = [
-        'product_id','amount','buyer_name','buyer_contact'
+        'product_id','amount','buyer_name','buyer_contact','status'
     ];
 
     public $timestamps = false;
