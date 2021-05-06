@@ -22,7 +22,7 @@
 
     <div class="form-group">
         <label for="exampleInputEmail1">Name</label>
-        <input type="text" name="buyer_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+        <input type="text" name="buyer_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" value="{{ Auth::user()->name }}" readonly>
     </div>
 
     <div class="form-group">

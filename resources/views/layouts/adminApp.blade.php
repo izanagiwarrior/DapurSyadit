@@ -49,6 +49,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.user') }}"><h3 class="fs-1 ">List User</h3></a>
                         </li>
+                        <li class="nav-item">
+                            <h3 class="nav-link ">|</h3>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.userOrder') }}"><h3 class="fs-1 ">List Order</h3></a>
+                        </li>
                         @endguest
                     </ul>
 
