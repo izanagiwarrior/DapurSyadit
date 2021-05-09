@@ -57,7 +57,7 @@
                             <h5 class="nav-link ">|</h5>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://wa.me/081236020875">
+                            <a class="nav-link" href="https://wa.me/6281236020875">
                                 <h5 class="fs-1 ">Contact Admin 1 : Adam</h5>
                             </a>
                         </li>
@@ -66,7 +66,7 @@
                             <h5 class="nav-link ">|</h5>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="https://wa.me/082143321000">
+                            <a class="nav-link" href="https://wa.me/6282143321000">
                                 <h5 class="fs-1 ">Contact Admin 2 : Farras</h5>
                             </a>
                         </li>
