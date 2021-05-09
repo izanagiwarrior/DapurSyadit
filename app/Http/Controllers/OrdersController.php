@@ -17,7 +17,7 @@ class OrdersController extends Controller
     {
         $products = Products::all();
 
-        return view('home', compact('products'));
+        return view('user.home', compact('products'));
     }
 
     /**
@@ -29,7 +29,7 @@ class OrdersController extends Controller
     {
         $products = Products::find($id);
 
-        return view('order', compact('products'));
+        return view('user.order', compact('products'));
     }
 
     public function createProcess(Request $request)
@@ -67,7 +67,7 @@ class OrdersController extends Controller
         $orders = Orders::all();
         $products = Products::all();
 
-        return view('transaction', compact('orders'), compact('products'));
+        return view('user.transaction', compact('orders'), compact('products'));
     }
 
     /**
@@ -108,7 +108,7 @@ class OrdersController extends Controller
     {
         $order = Orders::all();
 
-        return view('adminOrder', compact('order'));
+        return view('admin.adminOrder', compact('order'));
     }
 
 
@@ -124,7 +124,7 @@ class OrdersController extends Controller
     {
         $order = Orders::all();
 
-        return view('orderList', compact('order'));
+        return view('user.orderList', compact('order'));
     }
 
     public function UorderDelete(Request $request)

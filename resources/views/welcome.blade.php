@@ -32,6 +32,13 @@
                 <h3 class="mb-0 text-primary" style="font-size: 28px">Dapur Syadit</h3>
                 <ul class="navbar-nav ms-auto">
                     @auth
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Click here to {{ __('Logout') }} !!
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                     @else
                     <a class="nav-item nav-link pr-4 text-primary" href="{{ route('login') }}">Sign in</a>
                     <p class="nav-item nav-link pr-4 text-primary">|</p>

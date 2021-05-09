@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $products = Products::all();
 
-        return view('home', compact('products'));
+        return view('user.home', compact('products'));
     }
 
     /**
@@ -37,7 +37,7 @@ class HomeController extends Controller
     {
         $products = Products::all();
 
-        return view('adminHome', compact('products'));
+        return view('admin.adminHome', compact('products'));
     }
     
 }
