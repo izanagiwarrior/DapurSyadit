@@ -2,8 +2,8 @@
 
 @section('title', 'Admin : Home')
 @section('content')
-{{ $i = 0 }}
-<h1 class="text-center">List User</h1>
+{{$i = 0}}
+<h2 class="text-center">User Management</h2>
 <br>
 <div class="container d-flex justify-content-center">
     <table class="table table-striped">

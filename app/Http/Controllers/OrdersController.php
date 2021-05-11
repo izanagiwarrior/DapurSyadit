@@ -36,7 +36,7 @@ class OrdersController extends Controller
     {
         $orders = new Orders();
         $orders->product_id = $request->prodID;
-        $orders->amount = $request->amount;
+        $orders->amount = $request->buyer_quantity;
         $orders->buyer_name = $request->buyer_name;
         $orders->buyer_contact = $request->buyer_contact;
         $orders->status = "Sedang Diproses";

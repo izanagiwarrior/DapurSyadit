@@ -1,55 +1,36 @@
-@extends('layouts.userApp')
-@section('title', 'Home')
+@extends('layouts.app')
+@section('title', 'Order')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="text-center mt-4">Order</h1>
+<div class="container-fluid px-5">
+    <div class="row" style="height: 100%">
+        <div class="col">
+            <div class="banner w-100">
+                <img src="{{asset('images/banner-web.png')}}" alt="">
+            </div>
+            <div class="row">
+                <div class="d-flex flex-row justify-content-between">
+                    <h2 class="title-section">Food Catalog</h2>
+                    <input type="text" placeholder="search food here..." class="search-input">
                 </div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-                    @if (count($products) === 0)
-                    <div class="d-flex justify-content-center">
-                        <p class="text-muted">Mohon maaf semua stock sedang habis.</p>
-                    </div>
-                    @elseif (count($products) > 0)
-
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                <div class="card border-0">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            @foreach ($products as $index => $product)
-                                            <div class="col-sm-6 mr-2 mb-4 text-center">
-                                                <div class="card border-2" style="width: 18rem;">
-                                                    <img src="{{ asset('public/'.$product->img_path) }}" height="225">
-                                                    <div class="card-body">
-                                                        <h6 class="card-title">{{ $product->name }}</h6>
-                                                        <p class="card-text">{{ $product->description }}</p>
-                                                        <h4 class="card-text">Rp. {{ $product->price }}</h4>
-                                                        <div><a href="{{ route('create',$product->id) }}" class="btn bg-success text-white">Order Now</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
+                @foreach($products as $pd)
+                <div class="col-4">
+                    <div class="me-card">
+                        <div class="card-image">
+                            <img src="{{asset("public/$pd->img_path")}}" alt="" srcset="">
+                        </div>
+                        <div class="card-body d-flex justify-content-around align-items-center">
+                            <div class="text-container">
+                                <h2 class="card-title">{{$pd->name}}</h2>
+                                <p class="text-muted d-inline">15-25 min <span>.</span> </p>
+                                <p class="text-muted d-inline">{{$pd->price}}</p>
+                            </div>
+                            <div>
+                                <a href="{{route('create', $pd->id)}}" class="btn-custom px-5 py-3">Buy</a>
                             </div>
                         </div>
                     </div>
-                    @endif
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

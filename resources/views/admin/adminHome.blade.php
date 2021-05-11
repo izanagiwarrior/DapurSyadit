@@ -2,7 +2,17 @@
 
 @section('title', 'Admin : Home')
 @section('content')
-@if (count($products) === 0)
+<div class="container-fluid">
+    <div class="row p-3">
+        <h2>Dashboard</h2>
+    </div>
+    <div class="row p-3">
+        <p style="font-size:20px; font-weight:light;">hello admin, welcome to this page
+            lets enjoy it.</p>
+    </div>
+</div>
+@endsection
+{{-- @if (count($products) === 0)
 <div class="d-flex justify-content-center">
     <p class="text-muted">There is no data...</p>
 </div>
@@ -34,7 +44,7 @@
             <td>{{ $product->name }}</td>
             <td>{{ $product->price }}</td>
             <td>
-                <a href="{{ route('admin.orderProcess',$product->id) }}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('admin.edit',$product->id) }}" class="btn btn-primary">Edit</a>
 
                 &nbsp;&nbsp;
 
@@ -49,5 +59,4 @@
     </table>
 </div>
 
-@endif
-@endsection
+@endif --}}
