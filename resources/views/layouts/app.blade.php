@@ -48,6 +48,12 @@
                 <h3 class="mb-0 text-primary"> <a href="{{route('home')}}" style=" font-size:
                         28px;text-decoration:none;"">Dapur Syadit</a></h3>
                 <ul class="navbar-nav ms-auto d-flex justify-content-between">
+                    <a class="nav-item nav-link" href="https://wa.me/6281236020875">
+                        Contact Admin 1 : Adam
+                    </a>
+                    <a class="nav-item nav-link" href="https://wa.me/6282143321000">
+                        Contact Admin 2 : Farras
+                            </a>
                     <a href="" class="nav-item nav-link"><img src="{{asset('icons/shopping-bag.svg')}}" width="24px"
                             height="24px" alt="shopping bag"></a>
                     <a class="nav-item nav-link" href="{{ route('login') }}">Hi,
