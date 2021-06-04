@@ -1,11 +1,13 @@
 @php
 use App\Models\Products;
 @endphp
-@extends('layouts.userApp')
+@extends('layouts.app')
 @section('title', 'My Order')
 @section('content')
-{{ $i = 0 }}
-<h1 class="text-center">My Order : {{Auth::user()->name}}</h1>
+<?php
+$i = 0;
+?>
+<h1 class="text-center">History : {{Auth::user()->name}}</h1>
 <br>
 <div class="container d-flex justify-content-center">
     <table class="table table-striped">
@@ -16,11 +18,10 @@ use App\Models\Products;
             <th>Amount</th>
             <th>Contact</th>
             <th>Status</th>
-            <th>Action</th>
         </tr>
 
         @foreach ($order as $index => $product)
-        @if($product->buyer_name === Auth::user()->name)
+        @if($product->user_id === Auth::user()->id)
         <tr>
             <td>{{ $i += 1 }}</td>
             <td>{{ $product->buyer_name }}</td>
@@ -33,13 +34,6 @@ use App\Models\Products;
             <td>{{ $product->amount }}</td>
             <td>{{ $product->buyer_contact }}</td>
             <td>{{ $product->status }}</td>
-            <td>
-                <form action="{{ route('UorderDelete') }}" method="post">
-                    @csrf
-                    <input type="hidden" value="{{ $product->id }}" name="id">
-                    <button class="btn btn-danger">Cancel Order</button>
-                </form>
-            </td>
         </tr>
         @endif
         @endforeach

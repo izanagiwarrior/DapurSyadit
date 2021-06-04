@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Orders;
 use App\Models\Products;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class OrdersController extends Controller
@@ -34,13 +35,14 @@ class OrdersController extends Controller
 
     public function createProcess(Request $request)
     {
-        $orders = new Orders();
-        $orders->product_id = $request->prodID;
-        $orders->amount = $request->buyer_quantity;
-        $orders->buyer_name = $request->buyer_name;
-        $orders->buyer_contact = $request->buyer_contact;
-        $orders->status = "Sedang Diproses";
-        $orders->save();
+        $cart = new Cart();
+        $cart->user_id = $request->userID;
+        $cart->product_id = $request->prodID;
+        $cart->amount = $request->buyer_quantity;
+        $cart->buyer_name = $request->buyer_name;
+        $cart->buyer_contact = $request->buyer_contact;
+        $cart->status = "Sedang Diproses";
+        $cart->save();
 
         return redirect(route('home'));
     }
@@ -127,10 +129,40 @@ class OrdersController extends Controller
         return view('user.orderList', compact('order'));
     }
 
+    public function cart(Request $request)
+    {
+        $cart = Cart::all();
+        $products = Products::all();
+
+        return view('user.cart', compact('cart', 'products'));
+    }
+
     public function UorderDelete(Request $request)
     {
-        $order = Orders::find($request->id);
+        $order = Cart::find($request->id);
         $order->delete();
+
+        return redirect(route('cart'));
+    }
+
+    public function cartConfirmation(Request $request)
+    {
+        $cart = Cart::all();
+        // echo $cart;
+        foreach ($cart as $cr) {
+            if ($cr->user_id == $request->user_id) {
+                $cart2 = new Orders();
+                $cart2->user_id = $cr->user_id;
+                $cart2->product_id = $cr->product_id;
+                $cart2->amount = $cr->amount;
+                $cart2->buyer_name = $cr->buyer_name;
+                $cart2->buyer_contact = $cr->buyer_contact;
+                $cart2->status = "Sedang Diproses";
+                $cart2->save();
+                $delete = Cart::find($cr->id);
+                $delete->delete();
+            }
+        }
 
         return redirect(route('orderList'));
     }

@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Transaction')
+@section('title', 'Cart')
 @section('content')
 
-@if (count($orders) === 0)
+@if (count($cart) === 0)
 
 <div class="d-flex justify-content-center">
     <p class="text-muted">There is no data...</p>
@@ -10,11 +10,11 @@
 <div class="d-flex justify-content-center">
     <a href="{{ route('home') }}" class="btn btn-dark">Order Now</a>
 </div>
-@elseif (count($orders) > 0)
+@elseif (count($cart) > 0)
 <?php
 $i = 0;
 ?>
-<h1 class="text-center">Transaction</h1>
+<h1 class="text-center">Cart</h1>
 <br><br>
 <div class="container d-flex justify-content-center">
     <table class="table table-striped">
@@ -26,8 +26,12 @@ $i = 0;
             <th>Price</th>
             <th>Amount</th>
             <th>Total Price</th>
+            <th>Action</th>
         </tr>
-        @foreach ($orders as $index => $order)
+        <?php
+        $total = 0;
+        ?>
+        @foreach ($cart as $index => $order)
         <tr>
             <td>{{ $i += 1 }}</td>
             @foreach ($products as $ps)
@@ -42,11 +46,29 @@ $i = 0;
             <td>Rp. {{ $ps->price}}</td>
             <td>{{ $order->amount}}</td>
             <td>Rp. {{ $order->amount*$ps->price }}</td>
+            <td>
+                <form action="{{ route('UorderDelete') }}" method="post">
+                    @csrf
+                    <input type="hidden" value="{{ $order->id }}" name="id">
+                    <button class="btn btn-danger">Cancel</button>
+                </form>
+            </td>
+            <?php
+            $total += $order->amount * $ps->price;
+            ?>
             @endif
             @endforeach
         </tr>
         @endforeach
     </table>
+    <div class="text-right">
+        <p>Total : Rp. {{$total}}</p>
+    </div>
+    <form action="{{ route('cartConfirmation') }}" method="post">
+        @csrf
+        <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
+        <button class="btn btn-primary">Order</button>
+    </form>
 </div>
 @endif
 @endsection

@@ -51,6 +51,7 @@
                         <input type="text" max="13" class="form-control" id="exampleInputPassword1"
                             placeholder="fill here" name="buyer_contact">
                         <input type="hidden" name="prodID" value="{{$products->id}}">
+                        <input type="hidden" name="userID" value="{{Auth::User()->id}}">
                     </div>
                 </div>
             </div>

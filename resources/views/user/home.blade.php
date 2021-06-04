@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="d-flex flex-row justify-content-between">
                     <h2 class="title-section">Food Catalog</h2>
-                    <input type="text" placeholder="search food here..." class="search-input">
+                    <!-- <input type="text" placeholder="search food here..." class="search-input"> -->
                 </div>
                 @foreach($products as $pd)
                 <div class="col-4">
