@@ -34,6 +34,7 @@ $i = 0;
                 $total = 0;
                 ?>
                 @foreach ($cart as $index => $order)
+                @if ($order->user_id === Auth::User()->id)
                 <tr>
                     <td>{{ $i += 1 }}</td>
                     @foreach ($products as $ps)
@@ -61,6 +62,7 @@ $i = 0;
                     @endif
                     @endforeach
                 </tr>
+                @endif
                 @endforeach
             </table>
         </div>
