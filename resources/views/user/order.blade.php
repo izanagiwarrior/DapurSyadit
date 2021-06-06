@@ -4,7 +4,7 @@
 <div class="row mx-5">
     <div class="col-6 px-3">
         {{-- bagian img makanan --}}
-        <img src="{{asset("public/$products->img_path")}}" width="700" alt="" class="img-food">
+        <img src='{{asset("public/$products->img_path")}}' alt="" class="img-food" style="width:630px"></img>
         {{-- bagian img makanan --}}
     </div>
     <div class="col-6 pl-5">

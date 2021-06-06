@@ -58,6 +58,13 @@
     <div class="container-fluid px-5" style="height:92vh">
         <div class="row" style="height: 100%">
             <div class="col">
+            <div class="card mt-4" style="border: 0;">
+            <img class="card-img-top" src="{{asset('images/banner-web.png')}}" alt="Card image cap">
+                <div class="card-body px-3 mt-4">
+                <h2>Apa itu Dapur Syadit?</h2>
+                    <p>Dapur syadit merupakan website catering yag ...</p>
+                </div>
+            </div>
             </div>
         </div>
     </div>
