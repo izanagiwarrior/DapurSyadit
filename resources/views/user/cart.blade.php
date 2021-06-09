@@ -24,6 +24,7 @@ $i = 0;
                     <th>#</th>
                     <th>Product</th>
                     <th>Buyer Name</th>
+                    <th>Buyer Address</th>
                     <th>Contact</th>
                     <th>Price</th>
                     <th>Amount</th>
@@ -43,6 +44,7 @@ $i = 0;
                     @endif
                     @endforeach
                     <td>{{ $order->buyer_name }}</td>
+                    <td>{{ $order->address }}</td>
                     <td>{{ $order->buyer_contact }}</td>
                     @foreach ($products as $ps)
                     @if ($ps->id === $order->product_id)

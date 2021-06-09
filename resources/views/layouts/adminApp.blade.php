@@ -45,6 +45,8 @@
                 </li>
                 <li class="sidebar-list"><a class="sidebar-anchor active" href="{{route('admin.userOrder')}}">Orders</a>
                 </li>
+                <li class="sidebar-list"><a class="sidebar-anchor active" href="{{route('admin.statistic')}}">Statistic</a>
+                </li>
                 <li class="sidebar-list"><a class="sidebar-anchor" class="" href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}

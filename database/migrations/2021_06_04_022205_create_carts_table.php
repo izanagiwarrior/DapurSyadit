@@ -25,6 +25,7 @@ class CreateCartsTable extends Migration
             $table->string('buyer_name');
             $table->string('buyer_contact');
             $table->string('status')->nullable();
+            $table->string('address');
         });
     }
 

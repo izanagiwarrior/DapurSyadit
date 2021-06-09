@@ -14,17 +14,18 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->unsignedBigInteger('id',True);
+            $table->unsignedBigInteger('id', True);
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('product_id')
-                  ->references('id')
-                  ->on('products')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('products')
+                ->onDelete('cascade');
             $table->integer('amount');
             $table->string('buyer_name');
             $table->string('buyer_contact');
             $table->string('status')->nullable();
+            $table->string('address');
         });
     }
 

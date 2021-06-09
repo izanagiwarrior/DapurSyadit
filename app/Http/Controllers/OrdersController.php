@@ -42,6 +42,7 @@ class OrdersController extends Controller
         $cart->buyer_name = $request->buyer_name;
         $cart->buyer_contact = $request->buyer_contact;
         $cart->status = "Sedang Diproses";
+        $cart->address = $request->address;
         $cart->save();
 
         return redirect(route('home'));
@@ -145,6 +146,15 @@ class OrdersController extends Controller
         return redirect(route('cart'));
     }
 
+    public function statistic()
+    {
+        $products = Products::all();
+        $order = Orders::selectRaw("sum(amount) amount, product_id")
+            ->groupBy('product_id')
+            ->get();
+        return view('admin.adminStatistic', compact('order', 'products'));
+    }
+
     public function cartConfirmation(Request $request)
     {
         $cart = Cart::all();
@@ -158,6 +168,7 @@ class OrdersController extends Controller
                 $cart2->buyer_name = $cr->buyer_name;
                 $cart2->buyer_contact = $cr->buyer_contact;
                 $cart2->status = "Sedang Diproses";
+                $cart2->address = $cr->address;
                 $cart2->save();
                 $delete = Cart::find($cr->id);
                 $delete->delete();
